@@ -54,6 +54,12 @@
     },
     {
       "path": "./projects/services-assignment-start/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/routing-start/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/routing-start/tsconfig.spec.json"
     }
 ]
 }
