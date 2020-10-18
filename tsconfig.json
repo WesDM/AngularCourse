@@ -60,6 +60,12 @@
     },
     {
       "path": "./projects/routing-start/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/observable-start/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/observable-start/tsconfig.spec.json"
     }
 ]
 }

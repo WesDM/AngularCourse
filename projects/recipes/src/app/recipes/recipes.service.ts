@@ -9,6 +9,7 @@ export class RecipesService {
 
   private recipes: Recipe[] = [
     new Recipe(
+      0,
       'Spaghetti',
       'Angel Hair Pasta w/ Meat Sauce',
       'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/homemade-spaghetti-sauce-horizontal-1530890913.jpg',
@@ -18,6 +19,7 @@ export class RecipesService {
         new Ingredient('Oregano', 2)
       ]),
     new Recipe(
+      1,
       'Lasagna',
       'Three Cheese',
       'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/homemade-spaghetti-sauce-horizontal-1530890913.jpg',
@@ -27,6 +29,7 @@ export class RecipesService {
         new Ingredient('Cheese', 2)
       ]),
     new Recipe(
+      2,
       'Pizza',
       'Extra Cheese',
       'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/homemade-spaghetti-sauce-horizontal-1530890913.jpg',
@@ -46,5 +49,9 @@ export class RecipesService {
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
+  }
+
+  getRecipe(index: number): Recipe {
+    return this.recipes[index];
   }
 }

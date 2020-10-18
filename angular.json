@@ -835,6 +835,125 @@
           }
         }
       }
+    },
+    "observable-start": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/observable-start",
+      "sourceRoot": "projects/observable-start/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/observable-start",
+            "index": "projects/observable-start/src/index.html",
+            "main": "projects/observable-start/src/main.ts",
+            "polyfills": "projects/observable-start/src/polyfills.ts",
+            "tsConfig": "projects/observable-start/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/observable-start/src/favicon.ico",
+              "projects/observable-start/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "projects/observable-start/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/observable-start/src/environments/environment.ts",
+                  "with": "projects/observable-start/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "observable-start:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "observable-start:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "observable-start:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/observable-start/src/test.ts",
+            "polyfills": "projects/observable-start/src/polyfills.ts",
+            "tsConfig": "projects/observable-start/tsconfig.spec.json",
+            "karmaConfig": "projects/observable-start/karma.conf.js",
+            "assets": [
+              "projects/observable-start/src/favicon.ico",
+              "projects/observable-start/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "projects/observable-start/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/observable-start/tsconfig.app.json",
+              "projects/observable-start/tsconfig.spec.json",
+              "projects/observable-start/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/observable-start/e2e/protractor.conf.js",
+            "devServerTarget": "observable-start:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "observable-start:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "cmp-databinding-start"
 }
